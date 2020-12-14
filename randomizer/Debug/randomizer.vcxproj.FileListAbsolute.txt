@@ -1,3 +1,6 @@
 C:\Users\vital\Desktop\randomizer\randomizer\randomizer\Debug\randomizer.vcxprojAssemblyReference.cache
 C:\Users\vital\Desktop\randomizer\randomizer\randomizer\Debug\randomizer.MyForm.resources
 C:\Users\vital\Desktop\randomizer\randomizer\randomizer\Debug\randomizer.vcxproj.GenerateResource.cache
+C:\Users\vital\Desktop\1\randomizer\randomizer\Debug\randomizer.vcxprojAssemblyReference.cache
+C:\Users\vital\Desktop\1\randomizer\randomizer\Debug\randomizer.MyForm.resources
+C:\Users\vital\Desktop\1\randomizer\randomizer\Debug\randomizer.vcxproj.GenerateResource.cache

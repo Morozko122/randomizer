@@ -50,7 +50,7 @@ namespace randomizer {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Button^ button1;
+
 
 
 
@@ -77,12 +77,11 @@ namespace randomizer {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(51, 302);
+			this->button2->Location = System::Drawing::Point(31, 302);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(468, 21);
 			this->button2->TabIndex = 1;
@@ -93,7 +92,7 @@ namespace randomizer {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(88, 18);
+			this->label1->Location = System::Drawing::Point(76, 19);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(166, 13);
 			this->label1->TabIndex = 2;
@@ -102,7 +101,7 @@ namespace randomizer {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(149, 52);
+			this->textBox1->Location = System::Drawing::Point(129, 52);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(145, 20);
 			this->textBox1->TabIndex = 3;
@@ -112,7 +111,7 @@ namespace randomizer {
 			// 
 			this->textBox2->AcceptsReturn = true;
 			this->textBox2->AcceptsTab = true;
-			this->textBox2->Location = System::Drawing::Point(51, 138);
+			this->textBox2->Location = System::Drawing::Point(31, 138);
 			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->ScrollBars = System::Windows::Forms::ScrollBars::Both;
@@ -123,7 +122,7 @@ namespace randomizer {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(313, 52);
+			this->button4->Location = System::Drawing::Point(293, 52);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(206, 60);
 			this->button4->TabIndex = 6;
@@ -133,7 +132,7 @@ namespace randomizer {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(149, 92);
+			this->textBox3->Location = System::Drawing::Point(129, 92);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(145, 20);
 			this->textBox3->TabIndex = 7;
@@ -150,7 +149,7 @@ namespace randomizer {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(48, 95);
+			this->label3->Location = System::Drawing::Point(30, 92);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(73, 13);
 			this->label3->TabIndex = 9;
@@ -159,28 +158,17 @@ namespace randomizer {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(48, 55);
+			this->label4->Location = System::Drawing::Point(30, 52);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(91, 13);
 			this->label4->TabIndex = 10;
 			this->label4->Text = L"Êמכ-גמ סעמכבצמג";
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(633, 149);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 11;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(985, 335);
-			this->Controls->Add(this->button1);
+			this->ClientSize = System::Drawing::Size(531, 335);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
@@ -198,9 +186,8 @@ namespace randomizer {
 
 		}
 #pragma endregion
-		int M = 0;
-		int N = 0;
-		int** arra = new int* [M];
+		int M,N;
+		int** arra = 0;
 		private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -210,6 +197,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	M = System::Convert::ToInt32(textBox3->Text);
 	N = System::Convert::ToInt32(textBox1->Text);
 	srand(time(NULL));
+	arra = new int* [M];
 	for (int i = 0; i < M; i++) {
 		arra[i] = new int[N];
 	}
@@ -232,15 +220,16 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (arra) {
-		for (int i = 0; i < M; ++i) {
-			delete[] arra[i];
+	if(arra){
+		for (int i = 0; i < M; ++i)
+		{
+			delete[]arra[i];
 		}
-		delete[] arra;
+		delete[]arra;
+		arra = NULL;
 		textBox2->Text = " ";
-	}
-	fstream clear_file("1.txt", ios::out);
-	clear_file.close();
+		fstream clear_file("1.txt", ios::out);
+		clear_file.close(); }
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	textBox2->Text += arra[1][1];
